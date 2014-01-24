@@ -23,7 +23,7 @@
     return self;
 }
 
-- (NSNumber *)playersPlaying {
+- (NSNumber *)numberOfPlayers {
     return @([self.players count]);
 }
 
@@ -31,8 +31,28 @@
     [self.players addObject:player];
 }
 
-- (void)draw:(JPWPlayer *)player :(JPWDeck *)deck {
-    [player addCard:[deck takeTopCard]];
+- (JPWPlayingCard *)draw:(JPWDeck *)deck {
+    // need to change this method so it doesn't need to be passed a deck. first need to implement setup method.
+    return [deck takeTopCard];
+}
+
+- (void)dealCards:(JPWDeck *)deck {
+    // need to change this method so it doesn't need to be passed a deck. first need to implement setup method.
+    if ([self.numberOfPlayers  isEqual: @2]) {
+        // deal 7
+        for (int i = 0; i < [self.numberOfPlayers integerValue]; i++) {
+            for (int j = 0; j < 7; j++) {
+                [[self.players objectAtIndex:i] addCard:[self draw:deck]];
+            }
+        }
+    } else {
+        for (int i = 0; i < [self.numberOfPlayers integerValue]; i++) {
+            for (int j = 0; j < 5; j++) {
+                [[self.players objectAtIndex:i] addCard:[self draw:deck]];
+            }
+        }
+
+    }
 }
 
 @end

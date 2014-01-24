@@ -28,6 +28,14 @@ describe(@"Discard Pile", ^{
         [[[discardPile size] should] equal:@1];
     });
     
+    it(@"can show the top card.", ^{
+        JPWPlayingCard *card = [JPWPlayingCard newWithRank:@"A" suit:@"S"];
+        [discardPile addCard:card];
+        JPWPlayingCard *showedCard = [discardPile showTopCard];
+        [[showedCard.rank should] equal:card.rank];
+        [[showedCard.suit should] equal:card.suit];
+    });
+    
 });
 
 SPEC_END

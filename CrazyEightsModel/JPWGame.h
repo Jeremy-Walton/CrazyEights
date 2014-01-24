@@ -12,8 +12,10 @@
 
 @interface JPWGame : NSObject
 
-- (NSNumber *)playersPlaying;
+- (NSNumber *)numberOfPlayers;
 - (void)addPlayer:(JPWPlayer *)player;
-- (void)draw:(JPWPlayer *)player :(JPWDeck *)deck;
+- (JPWPlayingCard *)draw:(JPWDeck *)deck;
+// need to change this ^ method so it doesn't need to be passed a deck. first need to implement setup method.
+- (void)dealCards:(JPWDeck *)deck;
 
 @end

@@ -22,10 +22,10 @@ describe(@"Game", ^{
     });
     
     it(@"can add a player.", ^{
-        [[[game playersPlaying] should] equal:@0];
+        [[[game numberOfPlayers] should] equal:@0];
         JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
         [game addPlayer:player];
-        [[[game playersPlaying] should] equal:@1];
+        [[[game numberOfPlayers] should] equal:@1];
     });
     
     it(@"can draw a card.", ^{
@@ -34,16 +34,43 @@ describe(@"Game", ^{
         [[[player numberOfCards] should] equal:@0];
         [[[deck size] should] equal:@52];
         [game addPlayer:player];
-        [game draw:player :deck];
+        [player addCard:[game draw:deck]];
         [[[player numberOfCards] should] equal:@1];
         [[[deck size] should] equal:@51];
     });
     
-    it(@"can deal to players.", ^{
+    it(@"can deal to 2 players.", ^{
+        // gives 5 cards to each player or 7 if there are 2 players.
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
+        JPWDeck *deck = [JPWDeck new];
+        [game addPlayer:player];
+        [game addPlayer:player2];
+        [game dealCards:deck];
+        [[[player numberOfCards] should] equal:@7];
+        [[[player2 numberOfCards] should] equal:@7];
+    });
+    
+    it(@"can deal to more than 2 players.", ^{
+        // gives 5 cards to each player or 7 if there are 2 players.
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
+        JPWPlayer *player3 = [JPWPlayer newWithName:@"Max"];
+        JPWDeck *deck = [JPWDeck new];
+        [game addPlayer:player];
+        [game addPlayer:player2];
+        [game addPlayer:player3];
+        [game dealCards:deck];
+        [[[player numberOfCards] should] equal:@5];
+        [[[player2 numberOfCards] should] equal:@5];
+        [[[player3 numberOfCards] should] equal:@5];
+    });
+    
+    it(@"can setup a game.", ^{
         
     });
     
-    it(@"can dicard a card for a player.", ^{
+    it(@"can discard a card for a player.", ^{
         
     });
     
@@ -52,10 +79,6 @@ describe(@"Game", ^{
     });
     
     it(@"can change the turn order.", ^{
-        
-    });
-    
-    it(@"can setup a game.", ^{
         
     });
     
