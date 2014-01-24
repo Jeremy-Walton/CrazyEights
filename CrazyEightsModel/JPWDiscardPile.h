@@ -13,5 +13,6 @@
 
 - (void)addCard:(JPWPlayingCard *)card;
 - (NSNumber *)size;
+- (JPWPlayingCard *)showTopCard;
 
 @end

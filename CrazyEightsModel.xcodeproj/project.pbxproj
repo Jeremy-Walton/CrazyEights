@@ -10,6 +10,9 @@
 		3F23A7461892B4E300AB3B64 /* JPWDiscardPile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A7451892B4E300AB3B64 /* JPWDiscardPile.m */; };
 		3F23A7481892B51200AB3B64 /* DiscardPileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A7471892B51200AB3B64 /* DiscardPileTests.m */; };
 		3F23A74B1892C52C00AB3B64 /* JPWPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A74A1892C52C00AB3B64 /* JPWPlayer.m */; };
+		3F23A74D1892C69C00AB3B64 /* PlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A74C1892C69C00AB3B64 /* PlayerTests.m */; };
+		3F23A74F1892D5D400AB3B64 /* GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A74E1892D5D400AB3B64 /* GameTests.m */; };
+		3F23A7521892E92900AB3B64 /* JPWGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F23A7511892E92900AB3B64 /* JPWGame.m */; };
 		3FE381DA189163D900E178FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE381D9189163D900E178FF /* Foundation.framework */; };
 		3FE381DF189163D900E178FF /* CrazyEightsModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FE381DE189163D900E178FF /* CrazyEightsModel.h */; };
 		3FE381E1189163D900E178FF /* CrazyEightsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE381E0189163D900E178FF /* CrazyEightsModel.m */; };
@@ -54,6 +57,10 @@
 		3F23A7471892B51200AB3B64 /* DiscardPileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscardPileTests.m; sourceTree = "<group>"; };
 		3F23A7491892C52C00AB3B64 /* JPWPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPWPlayer.h; sourceTree = "<group>"; };
 		3F23A74A1892C52C00AB3B64 /* JPWPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPWPlayer.m; sourceTree = "<group>"; };
+		3F23A74C1892C69C00AB3B64 /* PlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTests.m; sourceTree = "<group>"; };
+		3F23A74E1892D5D400AB3B64 /* GameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTests.m; sourceTree = "<group>"; };
+		3F23A7501892E92900AB3B64 /* JPWGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPWGame.h; sourceTree = "<group>"; };
+		3F23A7511892E92900AB3B64 /* JPWGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPWGame.m; sourceTree = "<group>"; };
 		3FE381D6189163D900E178FF /* libCrazyEightsModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCrazyEightsModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE381D9189163D900E178FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FE381DD189163D900E178FF /* CrazyEightsModel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrazyEightsModel-Prefix.pch"; sourceTree = "<group>"; };
@@ -143,6 +150,8 @@
 				3F23A7451892B4E300AB3B64 /* JPWDiscardPile.m */,
 				3F23A7491892C52C00AB3B64 /* JPWPlayer.h */,
 				3F23A74A1892C52C00AB3B64 /* JPWPlayer.m */,
+				3F23A7501892E92900AB3B64 /* JPWGame.h */,
+				3F23A7511892E92900AB3B64 /* JPWGame.m */,
 			);
 			path = CrazyEightsModel;
 			sourceTree = "<group>";
@@ -162,6 +171,8 @@
 				3FE381F0189163D900E178FF /* Supporting Files */,
 				3FE3820218919F1600E178FF /* DeckTests.m */,
 				3F23A7471892B51200AB3B64 /* DiscardPileTests.m */,
+				3F23A74C1892C69C00AB3B64 /* PlayerTests.m */,
+				3F23A74E1892D5D400AB3B64 /* GameTests.m */,
 			);
 			path = CrazyEightsModelTests;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 				3FE381E1189163D900E178FF /* CrazyEightsModel.m in Sources */,
 				3FE382061891A1FF00E178FF /* JPWDeck.m in Sources */,
 				3F23A74B1892C52C00AB3B64 /* JPWPlayer.m in Sources */,
+				3F23A7521892E92900AB3B64 /* JPWGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F23A74D1892C69C00AB3B64 /* PlayerTests.m in Sources */,
+				3F23A74F1892D5D400AB3B64 /* GameTests.m in Sources */,
 				3FE3820318919F1600E178FF /* DeckTests.m in Sources */,
 				3FE381F6189163D900E178FF /* PlayingCardTests.m in Sources */,
 				3F23A7481892B51200AB3B64 /* DiscardPileTests.m in Sources */,

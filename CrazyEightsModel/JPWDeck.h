@@ -12,7 +12,7 @@
 @interface JPWDeck : NSObject
 
 - (NSNumber *)size;
-- (JPWPlayingCard *)take_top_card;
+- (JPWPlayingCard *)takeTopCard;
 - (void)shuffle;
 
 @end

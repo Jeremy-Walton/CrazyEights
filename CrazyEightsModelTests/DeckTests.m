@@ -26,15 +26,15 @@ describe(@"Deck", ^{
     
     it(@"can return a card when asked.", ^{
         [[[deck size] should] equal:@52];
-        JPWPlayingCard *card1 = [deck take_top_card];
-        JPWPlayingCard *card2 = [deck take_top_card];
+        JPWPlayingCard *card1 = [deck takeTopCard];
+        JPWPlayingCard *card2 = [deck takeTopCard];
         [[[deck size] should] equal:@50];
     });
     
     it(@"gets initialized the same way each time.", ^{
         JPWDeck *deck2 = [JPWDeck new];
-        JPWPlayingCard *card1 = [deck take_top_card];
-        JPWPlayingCard *card2 = [deck2 take_top_card];
+        JPWPlayingCard *card1 = [deck takeTopCard];
+        JPWPlayingCard *card2 = [deck2 takeTopCard];
         [[card1.rank should] equal:card2.rank];
         [[card1.suit should] equal:card2.suit];
     });
@@ -42,8 +42,8 @@ describe(@"Deck", ^{
     it(@"can be shuffled.", ^{
         JPWDeck *deck2 = [JPWDeck new];
         [deck2 shuffle];
-        JPWPlayingCard *card1 = [deck take_top_card];
-        JPWPlayingCard *card2 = [deck2 take_top_card];
+        JPWPlayingCard *card1 = [deck takeTopCard];
+        JPWPlayingCard *card2 = [deck2 takeTopCard];
         [[card1.rank shouldNot] equal:card2.rank];
     });
     

@@ -45,8 +45,7 @@
     return @([self.cards count]);
 }
 
-- (JPWPlayingCard *)take_top_card {
-//    Need to return the top card off the deck.
+- (JPWPlayingCard *)takeTopCard {
     JPWPlayingCard *card;
     card = [self.cards lastObject];
     [self.cards removeLastObject];

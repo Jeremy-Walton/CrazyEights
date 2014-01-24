@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPWPlayingCard.h"
 
 @interface JPWPlayer : NSObject
+
+@property (nonatomic, strong, readonly) NSString *name;
+
++ (instancetype)newWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name;
+
+- (void)addCard:(JPWPlayingCard *)card;
+- (JPWPlayingCard *)removeCard:(JPWPlayingCard *)card;
+- (NSNumber *)numberOfCards;
 
 @end

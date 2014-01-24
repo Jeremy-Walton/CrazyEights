@@ -19,7 +19,7 @@
     
     self = [super init];
     if(self) {
-        self.cards = [NSMutableArray new];
+        _cards = [NSMutableArray new];
     }
     return self;
 }
@@ -30,6 +30,10 @@
 
 - (NSNumber *)size {
     return @([self.cards count]);
+}
+
+- (JPWPlayingCard *)showTopCard {
+    return [self.cards lastObject];
 }
 
 @end
