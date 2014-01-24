@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPWPlayingCard.h"
 
 @interface JPWDiscardPile : NSObject
+
+- (void)addCard:(JPWPlayingCard *)card;
+- (NSNumber *)size;
 
 @end

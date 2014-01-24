@@ -7,7 +7,29 @@
 //
 
 #import "JPWDiscardPile.h"
+#import "JPWPlayingCard.h"
+
+@interface JPWDiscardPile()
+@property (nonatomic, strong) NSMutableArray *cards;
+@end
 
 @implementation JPWDiscardPile
+
+- (id)init {
+    
+    self = [super init];
+    if(self) {
+        self.cards = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (void)addCard:(JPWPlayingCard *)card {
+    [self.cards addObject:card];
+}
+
+- (NSNumber *)size {
+    return @([self.cards count]);
+}
 
 @end

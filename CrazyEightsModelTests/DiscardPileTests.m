@@ -7,28 +7,27 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "JPWDeck.h"
+#import "Kiwi.h"
+#import "JPWPlayingCard.h"
+#import "JPWDiscardPile.h"
 
-@interface DiscardPileTests : XCTestCase
+SPEC_BEGIN(DiscardPileTests)
 
-@end
+describe(@"Discard Pile", ^{
+    __block JPWDiscardPile *discardPile;
+    
+    beforeEach(^{
+        discardPile = [JPWDiscardPile new];
+    });
+    
+    it(@"can have cards added to it.", ^{
+        JPWPlayingCard *card = [JPWPlayingCard newWithRank:@"A" suit:@"S"];
+        [[[discardPile size] should] equal:@0];
+        [discardPile addCard:card];
+        [[[discardPile size] should] equal:@1];
+    });
+    
+});
 
-@implementation DiscardPileTests
-
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-@end
+SPEC_END

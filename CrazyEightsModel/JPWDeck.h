@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPWPlayingCard.h"
 
 @interface JPWDeck : NSObject
 
 - (NSNumber *)size;
+- (JPWPlayingCard *)take_top_card;
+- (void)shuffle;
 
 @end

@@ -20,7 +20,6 @@
     self = [super init];
     if(self) {
         [self createCards];
-//        NSArray *cards = [];
     }
     return self;
 }
@@ -44,6 +43,23 @@
 
 - (NSNumber *)size {
     return @([self.cards count]);
+}
+
+- (JPWPlayingCard *)take_top_card {
+//    Need to return the top card off the deck.
+    JPWPlayingCard *card;
+    card = [self.cards lastObject];
+    [self.cards removeLastObject];
+    return card;
+}
+
+- (void)shuffle {
+   
+    for (int i = 0; i < [[self size] integerValue]; i++) {
+        NSUInteger switch_index = arc4random_uniform([[self size] integerValue]);
+        [self.cards exchangeObjectAtIndex:i withObjectAtIndex:switch_index];
+    }
+    
 }
 
 @end
