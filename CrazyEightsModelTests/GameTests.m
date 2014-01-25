@@ -30,56 +30,110 @@ describe(@"Game", ^{
     
     it(@"can draw a card.", ^{
         JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
-        JPWDeck *deck = [JPWDeck new];
+        [game makeDeckForTest];
         [[[player numberOfCards] should] equal:@0];
-        [[[deck size] should] equal:@52];
+        [[[game testDeckSize] should] equal:@52];
         [game addPlayer:player];
-        [player addCard:[game draw:deck]];
+        
+        [player addCard:[game draw]];
+        
         [[[player numberOfCards] should] equal:@1];
-        [[[deck size] should] equal:@51];
+        [[[game testDeckSize] should] equal:@51];
     });
     
-    it(@"can deal to 2 players.", ^{
-        // gives 5 cards to each player or 7 if there are 2 players.
+    it(@"can deal 7 cards to 2 players.", ^{
         JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
         JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
-        JPWDeck *deck = [JPWDeck new];
+        [game makeDeckForTest];
+        
         [game addPlayer:player];
         [game addPlayer:player2];
-        [game dealCards:deck];
+        
+        [game dealCards];
+        
         [[[player numberOfCards] should] equal:@7];
         [[[player2 numberOfCards] should] equal:@7];
     });
     
-    it(@"can deal to more than 2 players.", ^{
-        // gives 5 cards to each player or 7 if there are 2 players.
+    it(@"can deal 5 cards to more than 2 players.", ^{
         JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
         JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
         JPWPlayer *player3 = [JPWPlayer newWithName:@"Max"];
-        JPWDeck *deck = [JPWDeck new];
+        [game makeDeckForTest];
+        
         [game addPlayer:player];
         [game addPlayer:player2];
         [game addPlayer:player3];
-        [game dealCards:deck];
+        
+        [game dealCards];
+        
         [[[player numberOfCards] should] equal:@5];
         [[[player2 numberOfCards] should] equal:@5];
         [[[player3 numberOfCards] should] equal:@5];
     });
     
     it(@"can setup a game.", ^{
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
+        JPWPlayer *player3 = [JPWPlayer newWithName:@"Max"];
+        [game addPlayer:player];
+        [game addPlayer:player2];
+        [game addPlayer:player3];
         
+        [game setup];
+        
+        [[[player numberOfCards] should] equal:@5];
+        [[[player2 numberOfCards] should] equal:@5];
+        [[[player3 numberOfCards] should] equal:@5];
     });
     
     it(@"can discard a card for a player.", ^{
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        [game makeDeckForTest];
+        [game makeDiscardPileForTest];
         
+        [game addPlayer:player];
+        
+        JPWPlayingCard *card = [game draw];
+        [player addCard:card];
+        
+        [[[player numberOfCards] should] equal:@1];
+        [[[game testDeckSize] should] equal:@51];
+        
+        [game discard:[player removeCard:card]];
+        [[[player numberOfCards] should] equal:@0];
+        [[[game testDiscardPileSize] should] equal:@1];
+
     });
     
     it(@"can determine whos turn it is.", ^{
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
+        JPWPlayer *player3 = [JPWPlayer newWithName:@"Max"];
+        [game addPlayer:player];
+        [game addPlayer:player2];
+        [game addPlayer:player3];
         
+        [game setup];
+        
+        NSString *turn = [game whosTurn];
+        [[turn should] equal:@"Jeremy"];
+
     });
     
     it(@"can change the turn order.", ^{
+        JPWPlayer *player = [JPWPlayer newWithName:@"Jeremy"];
+        JPWPlayer *player2 = [JPWPlayer newWithName:@"Sam"];
+        JPWPlayer *player3 = [JPWPlayer newWithName:@"Max"];
+        [game addPlayer:player];
+        [game addPlayer:player2];
+        [game addPlayer:player3];
         
+        [game setup];
+        [game changeTurnOrder];
+        
+        NSString *turn = [game whosTurn];
+        [[turn should] equal:@"Sam"];
     });
     
 });

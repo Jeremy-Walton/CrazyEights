@@ -33,18 +33,35 @@ describe(@"Deck", ^{
     
     it(@"gets initialized the same way each time.", ^{
         JPWDeck *deck2 = [JPWDeck new];
-        JPWPlayingCard *card1 = [deck takeTopCard];
-        JPWPlayingCard *card2 = [deck2 takeTopCard];
-        [[card1.rank should] equal:card2.rank];
-        [[card1.suit should] equal:card2.suit];
+        for (int i = 0; i < [[deck size] integerValue]; i++) {
+            JPWPlayingCard *card1 = [deck takeTopCard];
+            JPWPlayingCard *card2 = [deck2 takeTopCard];
+            NSMutableArray *rankSuit1 = [NSMutableArray new];
+            [rankSuit1 addObject:card1.rank];
+            [rankSuit1 addObject:card1.suit];
+            NSMutableArray *rankSuit2 = [NSMutableArray new];
+            [rankSuit2 addObject:card2.rank];
+            [rankSuit2 addObject:card2.suit];
+            [[rankSuit1 should] equal:rankSuit2];
+        }
     });
     
     it(@"can be shuffled.", ^{
         JPWDeck *deck2 = [JPWDeck new];
+        
         [deck2 shuffle];
-        JPWPlayingCard *card1 = [deck takeTopCard];
-        JPWPlayingCard *card2 = [deck2 takeTopCard];
-        [[card1.rank shouldNot] equal:card2.rank];
+        
+        for (int i = 0; i < [[deck size] integerValue]; i++) {
+            JPWPlayingCard *card1 = [deck takeTopCard];
+            JPWPlayingCard *card2 = [deck2 takeTopCard];
+            NSMutableArray *rankSuit1 = [NSMutableArray new];
+            [rankSuit1 addObject:card1.rank];
+            [rankSuit1 addObject:card1.suit];
+            NSMutableArray *rankSuit2 = [NSMutableArray new];
+            [rankSuit2 addObject:card2.rank];
+            [rankSuit2 addObject:card2.suit];
+            [[rankSuit1 shouldNot] equal:rankSuit2];
+        }
     });
     
 });

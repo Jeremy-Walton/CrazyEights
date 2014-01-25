@@ -10,7 +10,7 @@
 #import "JPWPlayingCard.h"
 
 @interface JPWPlayer()
-@property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong, readwrite) NSMutableArray *cards;
 @property (nonatomic, strong) NSString *name;
 @end
 
