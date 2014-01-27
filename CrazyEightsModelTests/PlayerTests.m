@@ -10,6 +10,7 @@
 #import "Kiwi.h"
 #import "JPWPlayingCard.h"
 #import "JPWPlayer.h"
+#import "JPWGame.h"
 
 SPEC_BEGIN(PlayerTests)
 
@@ -44,6 +45,18 @@ describe(@"Player", ^{
         [[card2.rank should] equal:card.rank];
         [[card2.suit should] equal:card.suit];
     });
+    
+//    it(@"play a card", ^{
+//        JPWPlayer  *player2 = [JPWPlayer newWithName:@"Sam"];
+//        JPWGame *game = [JPWGame new];
+//        [game addPlayer:player];
+//        [game addPlayer:player2];
+//        [game setup];
+//        [player addCard:/*needs to be set to the card on the discard pile*/];
+//        
+//        [player playCard:@1];
+//        [[[game testDiscardPileSize] should] equal:@2];
+//    });
 
 });
 

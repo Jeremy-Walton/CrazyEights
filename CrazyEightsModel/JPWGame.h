@@ -24,6 +24,7 @@
 - (NSString *)whosTurn;
 - (void)changeTurnOrder;
 - (void)discard:(JPWPlayingCard *)card;
+- (void)discardTopCard;
 
 - (void)makeDeckForTest;
 - (void)makeDiscardPileForTest;

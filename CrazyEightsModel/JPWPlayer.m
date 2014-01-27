@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Jeremy-Walton. All rights reserved.
 //
 
+//Need to split into player and hand.
+
 #import "JPWPlayer.h"
 #import "JPWPlayingCard.h"
 
@@ -49,6 +51,10 @@
         }
     }
     return correctCard;
+}
+
+- (NSString *)playCard:(NSNumber *)index {
+    return @"Able to play.";
 }
 
 @end

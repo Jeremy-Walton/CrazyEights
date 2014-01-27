@@ -39,12 +39,10 @@
 }
 
 - (JPWPlayingCard *)draw {
-    // need to change this method so it doesn't need to be passed a deck. first need to implement setup method.
     return [self.deck takeTopCard];
 }
 
 - (void)dealCards {
-    // need to change this method so it doesn't need to be passed a deck. first need to implement setup method.
     if ([self.numberOfPlayers  isEqual: @2]) {
         // deal 7
         for (int i = 0; i < [self.numberOfPlayers integerValue]; i++) {
@@ -67,6 +65,7 @@
     _discardPile = [JPWDiscardPile new];
     [self dealCards];
     [self setTurnOrder];
+    [self discardTopCard];
 }
 
 - (void)setTurnOrder {
@@ -89,6 +88,10 @@
 
 - (void)discard:(JPWPlayingCard *)card {
     [self.discardPile addCard:card];
+}
+
+- (void)discardTopCard {
+    [self.discardPile addCard:[self.deck takeTopCard]];
 }
 
 //These four methods are for testing purposes only.

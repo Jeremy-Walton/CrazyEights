@@ -136,6 +136,18 @@ describe(@"Game", ^{
         [[turn should] equal:@"Sam"];
     });
     
+    it(@"discard the top card.", ^{
+        [game makeDeckForTest];
+        [game makeDiscardPileForTest];
+        [[[game testDeckSize] should] equal:@52];
+        [[[game testDiscardPileSize] should] equal:@0];
+        [game discardTopCard];
+        [[[game testDeckSize] should] equal:@51];
+        [[[game testDiscardPileSize] should] equal:@1];
+        
+        
+    });
+    
 });
 
 SPEC_END
